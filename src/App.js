@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
+import EducationSubmission from './components/EducationalInfo';
 import './styles/App.css';
 
 class App extends Component{
-  constructor(){
-    super()
-  }
+
   render(){
   return (
     <div>
+      <EducationSubmission></EducationSubmission>
     </div>
   );
   }
