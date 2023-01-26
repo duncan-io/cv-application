@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import EducationSubmission from './components/EducationalInfo';
+import ExperienceSubmission from './components/ExperienceInfo';
+import GeneralInfoSubmission from './components/GeneralInfo';
 import './styles/App.css';
 
 class App extends Component{
@@ -8,6 +10,8 @@ class App extends Component{
   return (
     <div>
       <EducationSubmission></EducationSubmission>
+      <GeneralInfoSubmission></GeneralInfoSubmission>
+      <ExperienceSubmission></ExperienceSubmission>
     </div>
   );
   }
