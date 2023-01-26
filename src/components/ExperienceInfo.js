@@ -17,17 +17,17 @@ const ExperienceSubmission = (props) => {
         <div className="fieldContainer">
           <div className="field">
             <label htmlFor="dateStarted">From:</label>
-            <input type="text" id="dateStarted"></input>
+            <input type="date" id="dateStarted"></input>
           </div>
           <div className="field">
             <label htmlFor="dateEnded">To:</label>
-            <input type="text" id="dateEnded"></input>
+            <input type="date" id="dateEnded"></input>
           </div>
         </div>
         <div className="fieldContainer">
           <div className="field">
             <label htmlFor="mainDuties">Main Duties:</label>
-            <input type="text" id="mainDuties"></input>
+            <input type="textArea" id="mainDuties"></input>
           </div>
         </div>
         <button>Add Work Experience</button>

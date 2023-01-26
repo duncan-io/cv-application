@@ -18,11 +18,11 @@ const GeneralInfoSubmission = (props) => {
                 </div>
                 <div className="fieldContainer">
                 <div className="field">
-                    <label htmlFor="email">From:</label>
+                    <label htmlFor="email">Email:</label>
                     <input type="text" id="email"></input>
                 </div>
                 <div className="field">
-                    <label htmlFor="phoneNumber">To:</label>
+                    <label htmlFor="phoneNumber">Phone Number:</label>
                     <input type="number" id="phoneNumber"></input>
                 </div>
                 </div>

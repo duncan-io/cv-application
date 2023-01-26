@@ -6,3 +6,7 @@
 .fieldContainer{
   display: flex;
 }
+
+.dateDisplay{
+  display: flex;
+}
