@@ -1,17 +1,24 @@
 import React from "react";
 
 const EducationDisplay = (props) => {
-  const { schoolName, areaOfStudy, dateStarted, dateEnded } = props;
+  const { education } = props;
 
   return (
     <div className="infoDisplay">
-      <h3>{schoolName} </h3>
-      <h3>{areaOfStudy}</h3>
-      <div className="dateDisplay">
-      <h3>{dateStarted}</h3>
-      <h3>{dateEnded}</h3>
-      </div>
-      
+      <ul>
+        {education.map((item) => {
+          return (
+            <li>
+              <h3>{item.schoolName} </h3>
+              <h3>{item.areaOfStudy}</h3>
+              <div className="dateDisplay">
+                <h3>{item.dateStarted}</h3>
+                <h3>{item.dateEnded}</h3>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };

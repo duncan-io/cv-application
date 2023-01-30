@@ -1,6 +1,7 @@
 import React from "react";
 
-const EducationSubmission = (props) => {
+const EducationSubmission = ({addEducation}) => {
+
 
 
     return(
@@ -26,7 +27,12 @@ const EducationSubmission = (props) => {
                     <input type="date" id="dateEnded"></input>
                 </div>
                 </div>
-                <button>Add Education</button>
+                <button onClick={ () => addEducation({
+                    edName: this.schoolName.value,
+                    edStudy: this.areaofStudy.value,
+                    edStarted: this.dateStarted.value,
+                    edEnded: this.dateEnded.value,
+                })} >Add Education</button>
             </form>
                 
                

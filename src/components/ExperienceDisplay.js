@@ -1,17 +1,24 @@
 import React from "react";
 
 const ExperienceDisplay = (props) => {
-  const { companyName, title, dateStarted, dateEnded } = props;
+  const { experience } = props;
 
   return (
     <div className="infoDisplay">
-      <h3>{companyName} </h3>
-      <h3>{title}</h3>
-      <div className="dateDisplay">
-      <h3>{dateStarted}</h3>
-      <h3>{dateEnded}</h3>
-      </div>
-      
+      <ul>
+        {experience.map((item) => {
+          return (
+            <li>
+              <h3>{item.companyName} </h3>
+              <h3>{item.title}</h3>
+              <div className="dateDisplay">
+                <h3>{item.dateStarted}</h3>
+                <h3>{item.dateEnded}</h3>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };
