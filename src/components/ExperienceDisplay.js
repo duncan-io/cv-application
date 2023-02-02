@@ -15,6 +15,7 @@ const ExperienceDisplay = (props) => {
                 <h3>{item.dateStarted}</h3>
                 <h3>{item.dateEnded}</h3>
               </div>
+              <p>{item.mainDuties}</p>
             </li>
           );
         })}

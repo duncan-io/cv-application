@@ -1,7 +1,7 @@
 import React from "react";
 
 const GeneralInfoSubmission = (props) => {
-
+    const {generalChange} = props;
 
     return(
         <div>
@@ -23,10 +23,16 @@ const GeneralInfoSubmission = (props) => {
                 </div>
                 <div className="field">
                     <label htmlFor="phoneNumber">Phone Number:</label>
-                    <input type="number" id="phoneNumber"></input>
+                    <input type="number" id="phoneNumber" name="phoneNumber"></input>
                 </div>
                 </div>
-                <button>Add Education</button>
+                <button onClick={
+                    generalChange({
+                    firstName: "firstName".valueOf,
+                    lastName: "lastName".valueOf,    
+                    email: "email".valueOf,
+                    phone: "phoneNumber".valueOf,
+                })}>Add Info</button>
             </form>
                 
                
