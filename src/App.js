@@ -28,15 +28,13 @@ class App extends Component {
       },
       experience: [],
       general: {
-        firstName: "Duncan",
-        lastName: "McKee",
-        email: "test@gmail",
-        phoneNumber: "123456789",
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
       },
     };
   }
-
-  //this is the ticket, try and get this to change the general.[value] state.
 
 
 
@@ -92,17 +90,6 @@ class App extends Component {
         }
       })
      }
-  
-
-
-  // generalSubmission = (e) =>{
-  //   e.preventDefault();
-  //   this.setState({
-  //     general: this.state.general.concat(educationChange)
-  //   })
-  // }
-  // addEducation={this.addEducation().bind(this)}
-  // addExperience = {this.addExperience().bind(this)}
 
   render() {
     const { education, experience, general } = this.state;
