@@ -4,7 +4,7 @@ const ExperienceDisplay = (props) => {
   const { experience } = props;
 
   return (
-    <div className="infoDisplay">
+    <div className="infoDisplay hardSkills">
       <ul>
         {experience.map((item) => {
           return (
