@@ -1,4 +1,5 @@
 import React from "react";
+import format from "date-fns/format";
 
 const ExperienceDisplay = (props) => {
   const { experience } = props;
@@ -8,15 +9,19 @@ const ExperienceDisplay = (props) => {
       <ul>
         {experience.map((item) => {
           return (
-            <li>
-              <h3>{item.companyName} </h3>
-              <h3>{item.title}</h3>
+            <div className="experienceItem">
+              <div className="experienceTitle">
+                <h3>{item.title}</h3>
+                <h3><em>{item.companyName} </em></h3>
+              </div>
               <div className="dateDisplay">
-                <h3>{item.dateStarted}</h3>
-                <h3>{item.dateEnded}</h3>
+                <p>
+                  {format(new Date(item.dateStarted), "MM/dd/yyyy")} -
+                  {format(new Date(item.dateEnded), "MM/dd/yyyy")}
+                </p>
               </div>
               <p>{item.mainDuties}</p>
-            </li>
+            </div>
           );
         })}
       </ul>

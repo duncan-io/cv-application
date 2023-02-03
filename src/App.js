@@ -206,7 +206,7 @@ class App extends Component {
                   <input
                     type="text"
                     id="positionTitle"
-                    name="positionTitle"
+                    name="title"
                     onChange={this.experienceChange}
                   ></input>
                 </div>

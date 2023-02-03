@@ -61,7 +61,7 @@
   padding: 10px;
 }
 
-.educationTitle{
+.educationTitle, .experienceTitle{
   display: flex;
   justify-content: left;
   gap: 3rem;
