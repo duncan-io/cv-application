@@ -45,6 +45,10 @@ class App extends Component {
     this.setState({ general });
   };
 
+  generalSubmit = (e)=>{
+    e.target.reset()
+  };
+
   educationChange = (e) => {
     let edObj = { ...this.state.edObj };
     let newName = e.target.name;
@@ -53,6 +57,8 @@ class App extends Component {
     edObj[newName] = newValue;
     this.setState({ edObj });
   };
+
+  
 
   educationSubmit = (e) => {
     this.setState({
@@ -65,6 +71,8 @@ class App extends Component {
         key: i++,
       },
     });
+
+   
   };
 
   experienceChange = (e) => {
@@ -135,7 +143,7 @@ class App extends Component {
                   ></input>
                 </div>
               
-              <button onClick={this.generalChange} type="button">
+              <button onClick={this.generalSubmit} type="button">
                 Add Info
               </button>
             </form>

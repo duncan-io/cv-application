@@ -1,13 +1,18 @@
 import React from "react";
 import format from "date-fns/format";
+import { addDays, parseISO } from "date-fns";
 
 const ExperienceDisplay = (props) => {
   const { experience } = props;
+
 
   return (
     <div className="infoDisplay hardSkills">
       <ul>
         {experience.map((item) => {
+          const correctStart = parseISO(item.dateStarted)
+          const correctEnd = parseISO(item.dateEnded)
+          console.log(correctStart)
           return (
             <div className="experienceItem">
               <div className="experienceTitle">
@@ -16,8 +21,8 @@ const ExperienceDisplay = (props) => {
               </div>
               <div className="dateDisplay">
                 <p>
-                  {format(new Date(item.dateStarted), "MM/dd/yyyy")} -
-                  {format(new Date(item.dateEnded), "MM/dd/yyyy")}
+                  {format(new Date(correctStart), "MM/dd/yyyy")} -
+                  {format(new Date(correctEnd), "MM/dd/yyyy")}
                 </p>
               </div>
               <p>{item.mainDuties}</p>

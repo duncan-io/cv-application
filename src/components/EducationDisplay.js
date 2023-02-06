@@ -1,5 +1,6 @@
 import React from "react";
 import format from "date-fns/format";
+import parseISO from "date-fns/parseISO";
 
 const EducationDisplay = (props) => {
   const { education } = props;
@@ -8,6 +9,8 @@ const EducationDisplay = (props) => {
     <div className="infoDisplay hardSkills">
       <ul>
         {education.map((item) => {
+          const correctStart = parseISO(item.dateStarted)
+          const correctEnd = parseISO(item.dateEnded)
           return (
             <div className="educationItem">
               <div className="educationTitle">
@@ -15,7 +18,7 @@ const EducationDisplay = (props) => {
                 <h5><em>{item.areaOfStudy}</em></h5>
               </div>
               <div className="dateDisplay">
-                <p>{format(new Date(item.dateStarted), 'MM/dd/yyyy')} - {format(new Date(item.dateEnded), 'MM/dd/yyyy')}</p>
+                <p>{format(new Date(correctStart), 'MM/dd/yyyy')} - {format(new Date(correctEnd), 'MM/dd/yyyy')}</p>
               </div>
             </div>
           );
