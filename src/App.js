@@ -143,7 +143,7 @@ class App extends Component {
                   ></input>
                 </div>
               
-              <button onClick={this.generalSubmit} type="button">
+              <button onClick={this.generalChange} type="button">
                 Add Info
               </button>
             </form>
