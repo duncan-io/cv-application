@@ -95,37 +95,35 @@ class App extends Component {
       <div className="wrapper">
         <div className="inputs">
           <h1>Resume Builder</h1>
-          <div>
+          <div className="formArea">
             <form className="generalInfo submissionForm">
-              <div className="fieldContainer">
-                <div className="field">
-                  <label htmlFor="firstName">First Name:</label>
-                  <input
-                    onChange={this.generalChange}
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                  ></input>
-                </div>
-                <div className="field">
-                  <label htmlFor="lastName">Last Name:</label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    onChange={this.generalChange}
-                    name="lastName"
-                  ></input>
-                </div>
+              <div className="field">
+                <label htmlFor="firstName">First Name:</label>
+                <input
+                  onChange={this.generalChange}
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                ></input>
               </div>
-              <div className="fieldContainer">
-                <div className="field">
-                  <label htmlFor="email">Email:</label>
-                  <input
-                    type="text"
-                    id="email"
-                    name="email"
-                    onChange={this.generalChange}
-                  ></input>
+              <div className="field">
+                <label htmlFor="lastName">Last Name:</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  onChange={this.generalChange}
+                  name="lastName"
+                ></input>
+              </div>
+
+              <div className="field">
+                <label htmlFor="email">Email:</label>
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  onChange={this.generalChange}
+                ></input>
                 </div>
                 <div className="field">
                   <label htmlFor="phoneNumber">Phone Number:</label>
@@ -136,111 +134,104 @@ class App extends Component {
                     onChange={this.generalChange}
                   ></input>
                 </div>
-              </div>
+              
               <button onClick={this.generalChange} type="button">
                 Add Info
               </button>
             </form>
           </div>
-          <div>
+          <div className="formArea">
             <form className="education submissionForm">
-              <div className="fieldContainer">
-                <div className="field">
-                  <label htmlFor="schoolName">School Name:</label>
-                  <input
-                    type="text"
-                    id="schoolName"
-                    name="schoolName"
-                    onChange={this.educationChange}
-                  ></input>
-                </div>
-                <div className="field">
-                  <label htmlFor="areaOfStudy">Area of Study:</label>
-                  <input
-                    type="text"
-                    id="areaOfStudy"
-                    name="areaOfStudy"
-                    onChange={this.educationChange}
-                  ></input>
-                </div>
+              <div className="field">
+                <label htmlFor="schoolName">School Name:</label>
+                <input
+                  type="text"
+                  id="schoolName"
+                  name="schoolName"
+                  onChange={this.educationChange}
+                ></input>
               </div>
-              <div className="fieldContainer">
-                <div className="field">
-                  <label htmlFor="dateStarted">From:</label>
-                  <input
-                    type="date"
-                    id="dateStarted"
-                    name="dateStarted"
-                    onChange={this.educationChange}
-                  ></input>
-                </div>
-                <div className="field">
-                  <label htmlFor="dateEnded">To:</label>
-                  <input
-                    type="date"
-                    id="dateEnded"
-                    name="dateEnded"
-                    onChange={this.educationChange}
-                  ></input>
-                </div>
+              <div className="field">
+                <label htmlFor="areaOfStudy">Area of Study:</label>
+                <input
+                  type="text"
+                  id="areaOfStudy"
+                  name="areaOfStudy"
+                  onChange={this.educationChange}
+                ></input>
               </div>
+
+              <div className="field">
+                <label htmlFor="dateStarted">From:</label>
+                <input
+                  type="date"
+                  id="dateStarted"
+                  name="dateStarted"
+                  onChange={this.educationChange}
+                ></input>
+              </div>
+              <div className="field">
+                <label htmlFor="dateEnded">To:</label>
+                <input
+                  type="date"
+                  id="dateEnded"
+                  name="dateEnded"
+                  onChange={this.educationChange}
+                ></input>
+              </div>
+
               <button type="button" onClick={this.educationSubmit}>
                 Add Education
               </button>
             </form>
           </div>
-          <div>
+          <div className="formArea">
             <form className="experience submissionForm">
-              <div className="fieldContainer">
-                <div className="field">
-                  <label htmlFor="companyName">Company Name:</label>
-                  <input
-                    type="text"
-                    id="companyName"
-                    name="companyName"
-                    onChange={this.experienceChange}
-                  ></input>
-                </div>
-                <div className="field">
-                  <label htmlFor="positionTitle">Position:</label>
-                  <input
-                    type="text"
-                    id="positionTitle"
-                    name="title"
-                    onChange={this.experienceChange}
-                  ></input>
-                </div>
+              <div className="field">
+                <label htmlFor="companyName">Company Name:</label>
+                <input
+                  type="text"
+                  id="companyName"
+                  name="companyName"
+                  onChange={this.experienceChange}
+                ></input>
               </div>
-              <div className="fieldContainer">
-                <div className="field">
-                  <label htmlFor="dateStarted">From:</label>
-                  <input
-                    type="date"
-                    id="dateStarted"
-                    name="dateStarted"
-                    onChange={this.experienceChange}
-                  ></input>
-                </div>
-                <div className="field">
-                  <label htmlFor="dateEnded">To:</label>
-                  <input
-                    type="date"
-                    id="dateEnded"
-                    name="dateEnded"
-                    onChange={this.experienceChange}
-                  ></input>
-                </div>
+              <div className="field">
+                <label htmlFor="positionTitle">Position:</label>
+                <input
+                  type="text"
+                  id="positionTitle"
+                  name="title"
+                  onChange={this.experienceChange}
+                ></input>
               </div>
-              <div className="fieldContainer">
-                <div className="field">
-                  <label htmlFor="mainDuties">Main Duties:</label>
-                  <input
-                    type="textArea"
-                    id="mainDuties"
-                    name="mainDuties"
-                    onChange={this.experienceChange}
-                  ></input>
-                </div>
+              <div className="field">
+                <label htmlFor="dateStarted">From:</label>
+                <input
+                  type="date"
+                  id="dateStarted"
+                  name="dateStarted"
+                  onChange={this.experienceChange}
+                ></input>
+              </div>
+              <div className="field">
+                <label htmlFor="dateEnded">To:</label>
+                <input
+                  type="date"
+                  id="dateEnded"
+                  name="dateEnded"
+                  onChange={this.experienceChange}
+                ></input>
+              </div>
+              
+              <div className="field">
+                <label htmlFor="mainDuties">Main Duties:</label>
+                <input
+                  type="textArea"
+                  id="mainDuties"
+                  name="mainDuties"
+                  onChange={this.experienceChange}
+                ></input>
               </div>
               <button type="button" onClick={this.experienceSubmit}>
                 Add Work Experience
@@ -256,11 +247,11 @@ class App extends Component {
             email={general.email}
             phone={general.phoneNumber}
           />
-        <div className="skills">
-          <h2>Education</h2>
-          <EducationDisplay education={education} />
-          <h2>Experience</h2>
-          <ExperienceDisplay experience={experience} />
+          <div className="skills">
+            <h2>Education</h2>
+            <EducationDisplay education={education} />
+            <h2>Experience</h2>
+            <ExperienceDisplay experience={experience} />
           </div>
         </div>
       </div>
