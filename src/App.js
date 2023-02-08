@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import EducationDisplay from "./components/EducationDisplay";
 import ExperienceDisplay from "./components/ExperienceDisplay";
 import GeneralDisplay from "./components/GeneralDisplay";
@@ -6,101 +6,94 @@ import "./styles/App.css";
 
 let i = 0;
 
-class App extends Component {
-  constructor() {
-    super();
+const App = () => {
 
-    this.state = {
-      edObj: {
-        schoolName: "",
-        areaOfStudy: "",
-        dateStarted: "",
-        dateEnded: "",
-        key: i,
-      },
-      education: [],
-      exObj: {
-        companyName: "",
-        title: "",
-        dateStarted: "",
-        dateEnded: "",
-        mainDuties: "",
-      },
-      experience: [],
-      general: {
+  const [edObj, setEdObj] = useState(
+    {
+      schoolName: "",
+      areaOfStudy: "",
+      dateStarted: "",
+      dateEnded: "",
+      key: i,
+    }
+  );
+  const [education, setEducation] = useState([]);
+
+  const [exObj, setExObj] = useState(
+    {
+      companyName: "",
+      title: "",
+      dateStarted: "",
+      dateEnded: "",
+      mainDuties: "",
+    }
+  );
+
+  const [experience, setExperience] = useState([]);
+
+  const [general, setGeneral] = useState({
         firstName: "",
         lastName: "",
         email: "",
         phoneNumber: "",
-      },
-    };
-  }
+  });
+  
+  
 
-  generalChange = (e) => {
-    let general = { ...this.state.general };
-    let newName = e.target.name;
-
-    let newValue = e.target.value;
-    general[newName] = newValue;
-    this.setState({ general });
+  const generalChange = (e) => {
+    setGeneral(existingValues => ({
+      ...existingValues,
+      [e.target.name]: e.target.value
+    }))
   };
 
-  generalSubmit = (e)=>{
+  const generalSubmit = (e)=>{
     e.target.reset()
   };
 
-  educationChange = (e) => {
-    let edObj = { ...this.state.edObj };
-    let newName = e.target.name;
-
-    let newValue = e.target.value;
-    edObj[newName] = newValue;
-    this.setState({ edObj });
+  const educationChange = (e) => {
+    setEdObj(existingValues => ({
+      ...existingValues,
+      [e.target.name]: e.target.value
+    }))
   };
 
   
 
-  educationSubmit = (e) => {
-    this.setState({
-      education: this.state.education.concat(this.state.edObj),
-      edObj: {
+  const educationSubmit = (e) => {
+    setEducation(education.concat(...edObj))
+    setEdObj({
+      companyName: "",
+      title: "",
+      dateStarted: "",
+      dateEnded: "",
+      mainDuties: "",
+      })
+    };
+
+
+  const experienceChange = (e) => {
+    setExObj(existingValues => ({
+      ...existingValues,
+      [e.target.name]: e.target.value
+    }))
+  };
+
+  const experienceSubmit = (e) => {
+    setExperience(experience.concat(...exObj))
+    setExObj({
         schoolName: "",
         areaOfStudy: "",
         dateStarted: "",
         dateEnded: "",
         key: i++,
-      },
-    });
-
-   
-  };
-
-  experienceChange = (e) => {
-    let exObj = { ...this.state.exObj };
-    let newName = e.target.name;
-
-    let newValue = e.target.value;
-    exObj[newName] = newValue;
-    this.setState({ exObj });
-  };
-
-  experienceSubmit = (e) => {
-    this.setState({
-      experience: this.state.education.concat(this.state.exObj),
-      exObj: {
-        companyName: "",
-        title: "",
-        dateStarted: "",
-        dateEnded: "",
-        mainDuties: "",
-      },
-    });
+      })
   };
 
  
 
-  render() {
-    const { education, experience, general } = this.state;
+
+
     return (
       <div className="wrapper">
         <div className="inputs">
@@ -110,7 +103,7 @@ class App extends Component {
               <div className="field">
                 <label htmlFor="firstName">First Name:</label>
                 <input
-                  onChange={this.generalChange}
+                  onChange={generalChange}
                   type="text"
                   id="firstName"
                   name="firstName"
@@ -121,7 +114,7 @@ class App extends Component {
                 <input
                   type="text"
                   id="lastName"
-                  onChange={this.generalChange}
+                  onChange={generalChange}
                   name="lastName"
                 ></input>
               </div>
@@ -132,7 +125,7 @@ class App extends Component {
                   type="text"
                   id="email"
                   name="email"
-                  onChange={this.generalChange}
+                  onChange={generalChange}
                 ></input>
                 </div>
                 <div className="field">
@@ -141,11 +134,11 @@ class App extends Component {
                     type="number"
                     id="phoneNumber"
                     name="phoneNumber"
-                    onChange={this.generalChange}
+                    onChange={generalChange}
                   ></input>
                 </div>
               
-              <button onClick={this.generalChange} type="button">
+              <button onClick={generalSubmit} type="button">
                 Add Info
               </button>
             </form>
@@ -158,7 +151,7 @@ class App extends Component {
                   type="text"
                   id="schoolName"
                   name="schoolName"
-                  onChange={this.educationChange}
+                  onChange={educationChange}
                 ></input>
               </div>
               <div className="field">
@@ -167,7 +160,7 @@ class App extends Component {
                   type="text"
                   id="areaOfStudy"
                   name="areaOfStudy"
-                  onChange={this.educationChange}
+                  onChange={educationChange}
                 ></input>
               </div>
 
@@ -177,7 +170,7 @@ class App extends Component {
                   type="date"
                   id="dateStarted"
                   name="dateStarted"
-                  onChange={this.educationChange}
+                  onChange={educationChange}
                 ></input>
               </div>
               <div className="field">
@@ -186,11 +179,11 @@ class App extends Component {
                   type="date"
                   id="dateEnded"
                   name="dateEnded"
-                  onChange={this.educationChange}
+                  onChange={educationChange}
                 ></input>
               </div>
 
-              <button type="button" onClick={this.educationSubmit}>
+              <button type="button" onClick={educationSubmit}>
                 Add Education
               </button>
             </form>
@@ -203,7 +196,7 @@ class App extends Component {
                   type="text"
                   id="companyName"
                   name="companyName"
-                  onChange={this.experienceChange}
+                  onChange={experienceChange}
                 ></input>
               </div>
               <div className="field">
@@ -212,7 +205,7 @@ class App extends Component {
                   type="text"
                   id="positionTitle"
                   name="title"
-                  onChange={this.experienceChange}
+                  onChange={experienceChange}
                 ></input>
               </div>
               <div className="field">
@@ -221,7 +214,7 @@ class App extends Component {
                   type="date"
                   id="dateStarted"
                   name="dateStarted"
-                  onChange={this.experienceChange}
+                  onChange={experienceChange}
                 ></input>
               </div>
               <div className="field">
@@ -230,7 +223,7 @@ class App extends Component {
                   type="date"
                   id="dateEnded"
                   name="dateEnded"
-                  onChange={this.experienceChange}
+                  onChange={experienceChange}
                 ></input>
               </div>
               
@@ -240,10 +233,10 @@ class App extends Component {
                   type="textArea"
                   id="mainDuties"
                   name="mainDuties"
-                  onChange={this.experienceChange}
+                  onChange={experienceChange}
                 ></input>
               </div>
-              <button type="button" onClick={this.experienceSubmit}>
+              <button type="button" onClick={experienceSubmit}>
                 Add Work Experience
               </button>
             </form>
@@ -266,7 +259,6 @@ class App extends Component {
         </div>
       </div>
     );
-  }
-}
+};
 
 export default App;

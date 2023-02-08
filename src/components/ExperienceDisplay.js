@@ -1,6 +1,6 @@
 import React from "react";
 import format from "date-fns/format";
-import { addDays, parseISO } from "date-fns";
+import { parseISO } from "date-fns";
 
 const ExperienceDisplay = (props) => {
   const { experience } = props;
