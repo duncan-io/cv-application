@@ -38,17 +38,30 @@ const App = () => {
         phoneNumber: "",
   });
   
+  const [genObj, setGenObj] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+});
+  
   
 
   const generalChange = (e) => {
-    setGeneral(existingValues => ({
+    setGenObj(existingValues => ({
       ...existingValues,
       [e.target.name]: e.target.value
     }))
   };
 
   const generalSubmit = (e)=>{
-    e.target.reset()
+    setGeneral({...genObj})
+    setGenObj({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+})
   };
 
   const educationChange = (e) => {
@@ -61,13 +74,14 @@ const App = () => {
   
 
   const educationSubmit = (e) => {
-    setEducation(education.concat(...edObj))
+    i++
+    setEducation(education.concat(edObj))
     setEdObj({
-      companyName: "",
-      title: "",
+      schoolName: "",
+      areaOfStudy: "",
       dateStarted: "",
       dateEnded: "",
-      mainDuties: "",
+      key: i,
       })
     };
 
@@ -80,7 +94,7 @@ const App = () => {
   };
 
   const experienceSubmit = (e) => {
-    setExperience(experience.concat(...exObj))
+    setExperience(experience.concat(exObj))
     setExObj({
         schoolName: "",
         areaOfStudy: "",
@@ -99,7 +113,7 @@ const App = () => {
         <div className="inputs">
           <h1>Resume Builder</h1>
           <div className="formArea">
-            <form className="generalInfo submissionForm">
+            <form className="generalInfo submissionForm" onSubmit={generalSubmit}>
               <div className="field">
                 <label htmlFor="firstName">First Name:</label>
                 <input
@@ -107,6 +121,7 @@ const App = () => {
                   type="text"
                   id="firstName"
                   name="firstName"
+                  value={genObj.firstName}
                 ></input>
               </div>
               <div className="field">
@@ -114,6 +129,7 @@ const App = () => {
                 <input
                   type="text"
                   id="lastName"
+                  value={genObj.lastName}
                   onChange={generalChange}
                   name="lastName"
                 ></input>
@@ -122,9 +138,10 @@ const App = () => {
               <div className="field">
                 <label htmlFor="email">Email:</label>
                 <input
-                  type="text"
+                  type="email"
                   id="email"
                   name="email"
+                  value={genObj.email}
                   onChange={generalChange}
                 ></input>
                 </div>
@@ -134,11 +151,12 @@ const App = () => {
                     type="number"
                     id="phoneNumber"
                     name="phoneNumber"
+                    value={genObj.phoneNumber}
                     onChange={generalChange}
                   ></input>
                 </div>
               
-              <button onClick={generalSubmit} type="button">
+              <button type="button" onClick={generalSubmit}>
                 Add Info
               </button>
             </form>
@@ -151,6 +169,7 @@ const App = () => {
                   type="text"
                   id="schoolName"
                   name="schoolName"
+                  value={edObj.schoolName}
                   onChange={educationChange}
                 ></input>
               </div>
@@ -160,6 +179,7 @@ const App = () => {
                   type="text"
                   id="areaOfStudy"
                   name="areaOfStudy"
+                  value={edObj.areaOfStudy}
                   onChange={educationChange}
                 ></input>
               </div>
@@ -170,6 +190,7 @@ const App = () => {
                   type="date"
                   id="dateStarted"
                   name="dateStarted"
+                  value={edObj.dateStarted}
                   onChange={educationChange}
                 ></input>
               </div>
@@ -179,6 +200,7 @@ const App = () => {
                   type="date"
                   id="dateEnded"
                   name="dateEnded"
+                  value={edObj.dateEnded}
                   onChange={educationChange}
                 ></input>
               </div>
@@ -196,6 +218,7 @@ const App = () => {
                   type="text"
                   id="companyName"
                   name="companyName"
+                  value={exObj.companyName}
                   onChange={experienceChange}
                 ></input>
               </div>
@@ -205,6 +228,7 @@ const App = () => {
                   type="text"
                   id="positionTitle"
                   name="title"
+                  value={exObj.positionTitle}
                   onChange={experienceChange}
                 ></input>
               </div>
@@ -214,6 +238,7 @@ const App = () => {
                   type="date"
                   id="dateStarted"
                   name="dateStarted"
+                  value={exObj.dateStarted}
                   onChange={experienceChange}
                 ></input>
               </div>
@@ -223,6 +248,7 @@ const App = () => {
                   type="date"
                   id="dateEnded"
                   name="dateEnded"
+                  value={exObj.dateEnded}
                   onChange={experienceChange}
                 ></input>
               </div>
@@ -233,6 +259,7 @@ const App = () => {
                   type="textArea"
                   id="mainDuties"
                   name="mainDuties"
+                  value={exObj.mainDuties}
                   onChange={experienceChange}
                 ></input>
               </div>

@@ -12,7 +12,7 @@ const ExperienceDisplay = (props) => {
         {experience.map((item) => {
           const correctStart = parseISO(item.dateStarted)
           const correctEnd = parseISO(item.dateEnded)
-          console.log(correctStart)
+        
           return (
             <div className="experienceItem">
               <div className="experienceTitle">
