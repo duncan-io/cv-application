@@ -97,6 +97,8 @@ class App extends Component {
     });
   };
 
+ 
+
   render() {
     const { education, experience, general } = this.state;
     return (
